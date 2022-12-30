@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#Automatizar para subir historias laborales en on base
 from time import sleep
 import pyautogui as mouse
 import pyperclip as cp
