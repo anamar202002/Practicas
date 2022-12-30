@@ -1,3 +1,4 @@
+#multiples funciones para archivos .PDF .TIFF y .PNG, tipo ilovepdf, pero sin problemas de privacidad
 import os
 from tkinter import Tk, Label, Button, messagebox, filedialog, ttk, Scrollbar, VERTICAL, HORIZONTAL, Frame
 import tkinter as tk
