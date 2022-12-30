@@ -1,0 +1,34 @@
+Sub lectorArchivos(D)
+      
+    Set fs = CreateObject("Scripting.FileSystemObject")
+    Set f = fs.GetFolder(D)
+    Dim subcaperta As Object
+    
+    
+    For Each a In f.Files
+        If Not Right(a.Name, 4) = ".ini" Then
+            If Not Right(a.Name, 3) = ".db" Then
+                If Not Left(a.Name, 1) = "~" Then
+                    ActiveCell.Value = f.Name & "__" & a.Name
+                    'Range("a" & r).Value = D & "_" & a.Name
+                    ActiveCell.Offset(1, 0).Select
+                End If
+            End If
+        End If
+    Next a
+    
+    For Each subcarpeta In f.SubFolders
+        lectorArchivos (subcarpeta)
+    Next
+    
+End Sub
+
+Sub boton()
+    Hoja1.Select
+    Range("A2:B1048576").ClearContents
+    Dim D As String
+    Application.FileDialog(msoFileDialogFolderPicker).Show 'seleccionador de archivos
+    D = Application.FileDialog(msoFileDialogFilePicker).SelectedItems(1)
+    Range("A2").Activate
+    lectorArchivos (D)
+End Sub
