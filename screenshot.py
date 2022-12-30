@@ -1,3 +1,4 @@
+#Toma pantallazos y sube las imagenes a la página de la biblioteca de wix
 import pyautogui
 import keyboard
 import webbrowser 
